@@ -1,0 +1,40 @@
+.wrapper.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header{
+    background-color: #FF1779;
+    padding: 20px 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+nav a{
+    color: #FFFFFF;
+    margin: 0 10px;
+}
+
+.header-title{
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.header-button{
+    color: #FF1779;
+    background-color: #FFFFFF;
+    border: none;
+    padding: 5px 30px;
+    font-size: 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-left: 20px;
+}

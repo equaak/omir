@@ -1,0 +1,144 @@
+.block-title{
+    color: #FF1779;
+    font-size: 48px;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.block-subtitle{
+    color: #7D7D7D;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.block-text{
+    font-size: 20px;
+    color: #313131;
+    font-weight: 400;
+    text-align: center;
+}
+
+.main{
+    background-image: url(background.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content{
+    background-color: #FFFFFF;
+    padding: 50px 80px;
+}
+
+.main-title{
+    font-size: 128px;
+    font-weight: 600;
+    color: #FF1779;
+    font-family: "Oswald", sans-serif;
+}
+
+.main-subtitle{
+    font-family: "Oswald", sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #FF1779;
+}
+
+.block{
+    padding: 100px 0;
+}
+
+.we-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    text-align: center;
+}
+
+.mission-blocks{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.mission-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+}
+
+.mission-block img{
+    width: 100px;
+    margin-bottom: 30px;
+}
+
+.carusel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 0 0 0;
+}
+
+.carusel-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.carusel-content img{
+    width: 200px;
+    margin: 50px;
+}
+
+.carusel-button{
+    background: none;
+    border: none;
+}
+
+.carusel-button img{
+    width: 30px;
+}
+
+.our-team-content{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-button{
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 1px solid #FF1779;
+    padding: 20px 40px;
+    font-size: 24px;
+    color: #FF1779;
+    border-radius: 50px;
+    margin-top: 80px;
+}
+
+.team-button img{
+    margin-left: 20px;
+    width: 80px;
+}
+
+.logo{
+    width: 120px;
+    margin-bottom: 20px;
+}
