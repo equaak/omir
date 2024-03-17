@@ -9,14 +9,17 @@ import shopStore from '../../store/shopStore/ShopStore';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import pharm_logo from './pharm_logo.png';
+import star from './star.svg';
 
 const Order = () => {
     const [content, setContent] = useState([])
-
+    const [filteredResults, setFilteredResults] = useState([])
+    const [search, setSearch] = useState('')
     const setShops = async () => {
         const responce = await axios.get('http://localhost:5000/pharamacies');
         const rows = responce.data.reduce((rows, key, index) => (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows, []);
-        setContent(rows)
+        setContent(responce.data)
+        setFilteredResults(rows)
     }
 
     useEffect(() => {
@@ -26,6 +29,30 @@ const Order = () => {
     useEffect(() => {
         console.log(content)
     }, [content])
+
+    const handleFilter = () => {
+        if(search !== ''){
+            const filtered = content.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+            const rows = filtered.reduce((rows, key, index) => (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows, []);
+            setFilteredResults(rows)
+        }
+        else{
+            const rows = content.reduce((rows, key, index) => (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows, []);
+            setFilteredResults(rows)
+        }
+    }
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value)
+    }
+
+    useEffect(() => {
+        handleFilter()
+    }, [search])
+
+    const handleShop = () => {
+        shopStore.setShop()
+    }
 
     return(
         <main>
@@ -38,7 +65,7 @@ const Order = () => {
 
                     <div className='search'>
                         <img src={search} alt='' />
-                        <input type='text' placeholder='Search in ÖmirSafe... ' />
+                        <input type='text' placeholder='Search in ÖmirSafe... ' value={search} onChange={handleSearch}/>
                     </div>
 
                     <div className='nav'>
@@ -64,28 +91,32 @@ const Order = () => {
                     <p className='order-subtitle'>All pharmacies</p>
 
                     <div className='shops-block'>
-                        {content.map((item, i) => {
+                        {filteredResults    .map((item, i) => {
                             return(
                                 <div className='shops-row'>
                                     {
                                         item.map((subItem, j) => {
                                             return(
-                                            <div className='shop-block'>
-                                                <img src={pharm_logo} alt='' />
-                                                <p className='shop-title'>{subItem.name}</p>
-                                                <div className='shop-desc'>
-                                                    <p className='shopDesc-text'>Europharma is a modern convenient drug store where you can buy certified medicines...</p>
-                                                    <div className='delivery-time'>
-                                                        <p className='time'>60-70 <br></br> min</p>
+                                            <div className='shop-block' onClick={handleShop}>
+                                                <div className='shop-up'>
+                                                    <img src={pharm_logo} alt='' />
+                                                    <p className='shop-title'>{subItem.name}</p>
+                                                    <div className='shop-desc'>
+                                                        <p className='shopDesc-text'>Europharma is a modern convenient drug store where you can buy certified medicines...</p>
+                                                        <div className='delivery-time'>
+                                                            <p className='time'>60-70 <br></br> min</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div className='divider'></div>
-                                                <div className='pharmacy-rating'>
-                                                    <img src='' alt=''></img>
-                                                    <p className='pharmacy-price'>KZT 0</p>
-                                                    <div className='pharmacy-stars'>
-                                                        <img src='' alt='' />
-                                                        <p className='star-text'>4.97/5</p>
+                                                <div className='shop-up'>
+                                                    <div className='pharmacy-rating'>
+                                                        {/* <img src='' alt=''></img> */}
+                                                        <p className='pharmacy-price'>KZT 0</p>
+                                                        <div className='pharmacy-stars'>
+                                                            <img src={star} alt='' />
+                                                            <p className='star-text'>4.97/5</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>)

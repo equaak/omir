@@ -18,7 +18,7 @@ const Auth = () => {
             if(iin.length !== 0) return;
             return;
         }
-        const responce = await axios.get('http://localhost:5000/auth/login/customer')
+        const responce = await axios.post('http://localhost:5000/auth/login/customer')
         if(responce.data !== undefined){
             userStore.setUser(responce.data)
         }
@@ -31,7 +31,7 @@ const Auth = () => {
             return;
         }
 
-        const responce = await axios.get('http://localhost:5000/auth/registration/customer')
+        const responce = await axios.post('http://localhost:5000/auth/registration/customer')
         if(responce.data !== undefined){
             userStore.setUser(responce.data)
         }
