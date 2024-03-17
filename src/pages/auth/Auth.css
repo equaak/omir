@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     width: 500px;
-    padding: 150px 80px;
+    padding: 80px;
     box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.61);
     margin: 100px auto;
     border-radius: 50px;
 }
 
-.auth-content input{
+.pink-input{
     padding: 10px 40px;
     height: 20px;
     border: none;
@@ -19,7 +19,7 @@
     border-radius: 10px;
 }
 
-.auth-content input::placeholder{
+.pink-input::placeholder{
     color: #ffffff;
     font-size: 20px;
 }
@@ -45,4 +45,61 @@
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 100px;
+}
+
+.auth-type{
+    display: flex;
+    height: fit-content;
+    width: 400px;
+    background: none;
+    border: 2px solid #FF1779;
+    margin: 50px auto;
+    border-radius: 40px;
+}
+
+.auth-type.right{
+    justify-content: flex-end;
+}
+
+.auth-type.left{
+    justify-content: flex-start;
+}
+
+.auth-button{
+    background-color: #FF1779;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 40px;
+}
+
+.auth-inputs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-inputs input{
+    width: 30%;
+}
+
+.white-input{
+    background: none;
+    border: #FF1779 solid 2px;
+    padding: 10px 40px;
+    height: 20px;
+    color: #FF1779;
+    font-size: 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.input-label{
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+    color: #FF1779;
+    margin: 10px;
 }

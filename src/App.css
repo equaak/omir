@@ -8,6 +8,10 @@
   font-family: "Inter", sans-serif;
 }
 
+button{
+  cursor: pointer;
+}
+
 .wrapper{
   max-width: 1250px;
   margin: 0 auto;

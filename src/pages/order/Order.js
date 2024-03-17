@@ -4,18 +4,28 @@ import basket from './basket.svg';
 import point from './point.svg';
 import search from './search.svg'
 import arrow from './arrow.svg'
-// import axios from 'axios';
+import userStore from '../../store/userStore/UserStore';
+import shopStore from '../../store/shopStore/ShopStore';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import pharm_logo from './pharm_logo.png';
 
-const Order = ({target}) => {
-    // const [content, setContent] = useState()
+const Order = () => {
+    const [content, setContent] = useState([])
 
-    // useEffect(() => {
-    //     if(target === 'shops'){
-    //         const responce = axios.get('http://localhost:5000/pharamacies');
+    const setShops = async () => {
+        const responce = await axios.get('http://localhost:5000/pharamacies');
+        const rows = responce.data.reduce((rows, key, index) => (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows, []);
+        setContent(rows)
+    }
 
-    //         console.log(responce.data)
-    //     }
-    // }, [])
+    useEffect(() => {
+        setShops();
+    }, [])
+
+    useEffect(() => {
+        console.log(content)
+    }, [content])
 
     return(
         <main>
@@ -48,10 +58,43 @@ const Order = ({target}) => {
                     <div className='tree'>
                         <Link to='/'><p className='tree-home'>Homepage</p></Link>
                         <img src={arrow} alt='' />
-                        {target === 'shops' ? <p className='order-label'>All pharamacies</p> : <p></p>}
+                        <p className='order-label'>All pharamacies</p>
                     </div>
 
                     <p className='order-subtitle'>All pharmacies</p>
+
+                    <div className='shops-block'>
+                        {content.map((item, i) => {
+                            return(
+                                <div className='shops-row'>
+                                    {
+                                        item.map((subItem, j) => {
+                                            return(
+                                            <div className='shop-block'>
+                                                <img src={pharm_logo} alt='' />
+                                                <p className='shop-title'>{subItem.name}</p>
+                                                <div className='shop-desc'>
+                                                    <p className='shopDesc-text'>Europharma is a modern convenient drug store where you can buy certified medicines...</p>
+                                                    <div className='delivery-time'>
+                                                        <p className='time'>60-70 <br></br> min</p>
+                                                    </div>
+                                                </div>
+                                                <div className='divider'></div>
+                                                <div className='pharmacy-rating'>
+                                                    <img src='' alt=''></img>
+                                                    <p className='pharmacy-price'>KZT 0</p>
+                                                    <div className='pharmacy-stars'>
+                                                        <img src='' alt='' />
+                                                        <p className='star-text'>4.97/5</p>
+                                                    </div>
+                                                </div>
+                                            </div>)
+                                        })
+                                    }
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>  
             </main>
         </main>

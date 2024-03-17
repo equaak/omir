@@ -3,7 +3,8 @@ import { makeAutoObservable } from "mobx";
 class UserStore {
   user = {
     name: "",
-    email: ""
+    email: "",
+    product: []
   };
 
   constructor() {
