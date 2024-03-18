@@ -1,8 +1,8 @@
 import './Order.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import basket from './basket.svg';
 import point from './point.svg';
-import search from './search.svg'
+import searchImg from './search.svg'
 import arrow from './arrow.svg'
 import userStore from '../../store/userStore/UserStore';
 import shopStore from '../../store/shopStore/ShopStore';
@@ -15,10 +15,11 @@ const Order = () => {
     const [content, setContent] = useState([])
     const [filteredResults, setFilteredResults] = useState([])
     const [search, setSearch] = useState('')
+    const navigate = useNavigate()
     const setShops = async () => {
         const responce = await axios.get('http://localhost:5000/pharamacies');
-        const rows = responce.data.reduce((rows, key, index) => (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows, []);
-        setContent(responce.data)
+        const rows = responce.data[0].reduce((rows, key, index) => (index % 3 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows, []);
+        setContent(responce.data[0])
         setFilteredResults(rows)
     }
 
@@ -50,8 +51,9 @@ const Order = () => {
         handleFilter()
     }, [search])
 
-    const handleShop = () => {
-        shopStore.setShop()
+    const handleShop = (shop) => {
+        shopStore.setShop(shop)
+        navigate('/order/products')
     }
 
     return(
@@ -64,7 +66,7 @@ const Order = () => {
                     </div>
 
                     <div className='search'>
-                        <img src={search} alt='' />
+                        <img src={searchImg} alt='' />
                         <input type='text' placeholder='Search in ÖmirSafe... ' value={search} onChange={handleSearch}/>
                     </div>
 
@@ -91,13 +93,13 @@ const Order = () => {
                     <p className='order-subtitle'>All pharmacies</p>
 
                     <div className='shops-block'>
-                        {filteredResults    .map((item, i) => {
+                        {filteredResults.map((item, i) => {
                             return(
                                 <div className='shops-row'>
                                     {
-                                        item.map((subItem, j) => {
+                                        item.map((subItem) => {
                                             return(
-                                            <div className='shop-block' onClick={handleShop}>
+                                            <div className='shop-block' onClick={() => handleShop(subItem)}>
                                                 <div className='shop-up'>
                                                     <img src={pharm_logo} alt='' />
                                                     <p className='shop-title'>{subItem.name}</p>

@@ -1,0 +1,112 @@
+.shop-info{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.shop-info img{
+    width: 20px;
+}
+
+.shop-info p{
+    margin-right: 20px;
+}
+
+.shop-info img{
+    margin-right: 10px;
+}
+
+
+.pharmacy-text{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pharmacy-text.purple{
+    color: #FF1779;
+}
+
+.shop-description{
+    font-size: 16px;
+    color: #0000009f;
+    font-weight: 500;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.tree-home.shop{
+    color: #000000;
+}
+
+.tree-home.shop.underline{
+    text-decoration: underline;
+}
+
+.pharmacy-popular{
+    display: flex;
+    align-items: center;
+}
+
+.popular-title{
+    font-size: 28px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.popular-subtitle{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0000009f;
+}
+
+
+.popular-products{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.popular-product{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    border: 1px solid #0000009f;
+    border-radius: 10px;
+}
+
+.popular-product img{
+    margin-left: 50px;
+}
+
+
+.popular-name{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.popular-price{
+    font-size: 18px;
+    color: #FF1779;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.popular-right{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.popular-button{
+    background-color: #FFD6E8;
+    font-size: 20px;
+    color: #FF1779;
+    width: 30px;
+    height: 30px;
+    border: none;
+    align-self: flex-end;
+    border-radius: 5px;
+    margin-top: -20px;
+}
