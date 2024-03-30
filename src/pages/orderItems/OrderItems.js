@@ -142,6 +142,9 @@ const OrderItems = () => {
 
                             </div>
                         </div>
+                        <div className='products-block'>
+                            
+                        </div>
                     </div>
                 </div>  
             </main>
