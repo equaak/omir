@@ -11,11 +11,9 @@ const Layout = () => {
                     <nav>
                         <Link to=''>Home</Link>
                         <Link to='about'>About</Link>
-                        <Link to='partners'>Partners</Link>
-                        <Link to='out_team'>Our team</Link>
-                        <Link to='contact'>Contacts</Link>
+                        <Link to='profile'>Profile</Link>
                         <Link to='order/shops'><button className='header-button'>Order</button></Link>
-                    </nav>
+                    </nav>  
                 </div>
             </header>
 

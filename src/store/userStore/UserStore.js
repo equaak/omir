@@ -1,11 +1,8 @@
 import { makeAutoObservable } from "mobx";
 
 class UserStore {
-  user = {
-    name: "",
-    email: "",
-    product: []
-  };
+  user = [];
+  token = "";
 
   constructor() {
     makeAutoObservable(this);
@@ -16,10 +13,15 @@ class UserStore {
   }
 
   clearUser() {
-    this.user = {
-      name: "",
-      email: ""
-    };
+    this.user = [];
+  }
+
+  setToken(token){
+    this.token = token;
+  }
+
+  clearToken(){
+    this.token = "";
   }
 }
 

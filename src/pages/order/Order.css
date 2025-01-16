@@ -173,3 +173,15 @@ a button{
     font-size: 14px;
     font-weight: 600;
 }
+
+.user-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+.user-info img{
+    width: 20px;
+    margin-right: 10px;
+}

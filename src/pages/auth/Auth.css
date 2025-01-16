@@ -73,6 +73,7 @@
     border: none;
     padding: 10px 40px;
     border-radius: 40px;
+    cursor: pointer;
 }
 
 .auth-inputs{
